@@ -12,8 +12,7 @@ var BasicInfoSchema = new Schema({
       type: String
     },
     thumbnail: {
-      type: String,
-      Required: 'Kindly enter the name of the task'
+      type: String
     }
 });
 

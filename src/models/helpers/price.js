@@ -5,12 +5,10 @@ var Schema = mongoose.Schema,
     
 var PriceSchema = new Schema({
     totalActual: {
-      type: Number,
-      Required: 'Kindly enter the name of the task'
+      type: Number
     },
     totalDiscounted: {
-      type: Number,
-      Required: 'Kindly enter the name of the task'
+      type: Number
     },
     adultActual: {
       type: Number

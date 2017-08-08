@@ -17,7 +17,7 @@ exports.readAll = function(req, res) {
         {
           Collection.find({})
             .limit(perPage)
-            //.skip(perPage*pageNumber)
+            .skip(perPage*pageNumber)
             .sort( { id: 'asc' })
             .populate('cityList.city', 'name')
             .exec(function(err, data) {

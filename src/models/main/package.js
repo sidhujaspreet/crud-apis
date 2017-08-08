@@ -5,6 +5,7 @@ var Schema = mongoose.Schema,
 
 var BasicInfo = require('../helpers/basicInfo');
 var Price = require('../helpers/price');
+var Transport = require('../helpers/transport');
 var CityModel = require('./city');
 
 var PackageSchema = new Schema({
@@ -32,11 +33,12 @@ var PackageSchema = new Schema({
       type: Date
     }
   },
-  price: Price.schema,
-  cityList: [CityModel.schema],
   photoList: {
     type: Array
-  }
+  },
+  price: Price.schema,
+  cityList: [CityModel.schema],
+  TransportList: [Transport.schema]
 });
 
 module.exports = mongoose.model('packages', PackageSchema);
