@@ -3,7 +3,8 @@
 var jwt = require('jsonwebtoken');
 
 var mongoose = require('mongoose'),
-    Collection = mongoose.model('users');
+    Collection = mongoose.model('users'),
+    secretKey = process.env.SECRET_KEY || 'jarvis';
     
 exports.login = function(req, res) {
     var user = getCreds(req);
@@ -17,7 +18,7 @@ exports.login = function(req, res) {
             iss: 'https://mysite.com',
             permissions: user.role
         };
-        var token = jwt.sign(claims, process.env.SECRET_KEY, {
+        var token = jwt.sign(claims, secretKey, {
             expiresIn: 4000
         });
         res.json({
@@ -41,7 +42,7 @@ exports.register = function(req, res) {
     if (err)
       res.send(err);
       
-    var token = jwt.sign(req.body, process.env.SECRET_KEY, {
+    var token = jwt.sign(req.body, secretKey, {
         expiresIn: 4000
     });
     res.json({
